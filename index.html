@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kicksandtricks — Something for Everyone · Rhode Island sneaker, card & collectibles convention</title>
+<meta name="description" content="Kicksandtricks: buy, sell, trade & network. Sneakers, streetwear, trading cards, art, jewelry and collectibles across Rhode Island and southern New England. Concept site.">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="assets/logo-sm.svg" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // feature flags before paint
+  (function(){
+    var d=document.documentElement, ok=false;
+    try{var c=document.createElement('canvas');ok=!!(window.WebGLRenderingContext&&(c.getContext('webgl2')||c.getContext('webgl')));}catch(e){}
+    d.classList.add(ok?'webgl':'no-webgl');
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('reduced');
+  })();
+</script>
+<script src="data.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<!-- giant outlined words, sit BEHIND the 3D canvas -->
+<div class="ghost-layer" aria-hidden="true">
+  <div class="ghost" data-ghost="explode">KICKS</div>
+  <div class="ghost" data-ghost="cards">CARDS</div>
+  <div class="ghost" data-ghost="ice">ICE</div>
+  <div class="ghost" data-ghost="fits">FITS</div>
+  <div class="ghost" data-ghost="art">ART</div>
+  <div class="ghost" data-ghost="grails">GRAILS</div>
+</div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div id="callouts" aria-hidden="true"><svg id="callout-svg"></svg></div>
+
+<header class="nav">
+  <a class="nav-logo" href="#top" aria-label="Kicksandtricks home"><img src="assets/logo-sm.svg" alt="Kicks and Tricks logo" width="120" height="79"></a>
+  <nav class="nav-links mono">
+    <a href="#events">Events</a>
+    <a href="#vendors">Vendors</a>
+    <a href="#book">Book / Collab</a>
+  </nav>
+  <a class="nav-cta mono" href="https://www.instagram.com/kicksandtricks47" target="_blank" rel="noopener">@kicksandtricks47 <span>↗</span></a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="sec hero" data-sec="hero">
+    <div class="hero-left">
+      <p class="eyebrow mono">Rhode Island · Southern New England</p>
+      <img class="hero-logo" src="assets/logo.svg" alt="Kicks and Tricks — official fiery skull-in-skillet wordmark" width="900" height="590">
+      <p class="hero-sub mono">Buy · Sell · Trade &amp; Network</p>
+    </div>
+    <div class="hero-right mono">
+      <p class="tag-red">Something for everyone</p>
+      <ol class="hero-list">
+        <li><span>01</span>Sneakers</li>
+        <li><span>02</span>Trading cards</li>
+        <li><span>03</span>Jewelry</li>
+        <li><span>04</span>Streetwear</li>
+        <li><span>05</span>Art</li>
+        <li><span>06</span>Collectibles</li>
+      </ol>
+      <a class="pill" href="#events"><i class="dot"></i><span data-bind="heroNext">Next date TBA</span></a>
+    </div>
+    <div class="hero-bottom mono">
+      <a class="btn btn-fire" href="#vendors">Get a vendor table</a>
+      <span class="scroll-cue"><i></i>Scroll to explore</span>
+    </div>
+    <figure class="fallback-fig hero-fallback"><img src="assets/photo_sneaker_table_erinelizabeth.svg" alt="Rows of sneakers on a vendor table" loading="lazy"><figcaption class="mono">Photo: ErinElizabeth</figcaption></figure>
+  </section>
+
+  <!-- 01 KICKS : exploded sneaker -->
+  <section class="sec chapter tall-xl" data-sec="explode" id="kicks">
+    <div class="sticky">
+      <div class="chap-text left">
+        <p class="chap-num mono"><b>01</b> / Kicks</p>
+        <h2 class="display">Every pair<br>has layers.</h2>
+        <p class="chap-copy mono">Grails and everyday pairs. Bring heat to sell, bring a bag to trade, or just come look. Customs, restorations and live sneaker cleaning on the floor.</p>
+      </div>
+      <figure class="fallback-fig"><img src="assets/photo_vendor_table_kickamatics.svg" alt="A vendor wall of sneakers" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- 02 CARDS -->
+  <section class="sec chapter tall-l" data-sec="cards" id="cards">
+    <div class="sticky">
+      <div class="chap-text left">
+        <p class="chap-num mono"><b>02</b> / Cards</p>
+        <h2 class="display">Slabs, singles<br>&amp; sealed.</h2>
+        <p class="chap-copy mono">Searching for a Charizard? TCG tables from Pokémon to Dragon Ball, plus comics and anime. Hunt, trade, collect.</p>
+        <ul class="chips mono"><li>Pokémon</li><li>TCG</li><li>Dragon Ball</li><li>Comics</li></ul>
+      </div>
+      <figure class="fallback-fig"><img src="assets/photo_shoppers_newaura.svg" alt="Two shoppers holding sneakers at the event" loading="lazy"><figcaption class="mono">Photo: New Aura Company</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 03 ICE -->
+  <section class="sec chapter tall-m" data-sec="ice" id="ice">
+    <div class="sticky">
+      <div class="chap-text right">
+        <p class="chap-num mono"><b>03</b> / Ice</p>
+        <h2 class="display">Chains, rings<br>&amp; shine.</h2>
+        <p class="chap-copy mono">Jewelry booths in the mix, like M. PULZE’s tarnish &amp; water resistant pieces at Homecoming.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 FITS -->
+  <section class="sec chapter tall-m" data-sec="fits" id="fits">
+    <div class="sticky">
+      <div class="chap-text left">
+        <p class="chap-num mono"><b>04</b> / Fits</p>
+        <h2 class="display">Local brands.<br>Live prints.</h2>
+        <p class="chap-copy mono">Streetwear, local clothing brands, custom merch and live screen printing, pulled right off the press.</p>
+      </div>
+      <figure class="fallback-fig"><img src="assets/photo_screenprinting.svg" alt="Live screen printing at a Kicksandtricks event" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- 05 ART -->
+  <section class="sec chapter tall-m" data-sec="art" id="art">
+    <div class="sticky">
+      <div class="chap-text right">
+        <p class="chap-num mono"><b>05</b> / Art</p>
+        <h2 class="display">Made by<br>the culture.</h2>
+        <p class="chap-copy mono">Local artists, custom pieces and custom rugs from crews like Rolledout Rugs and Jay Crafted Rugz.</p>
+      </div>
+      <figure class="fallback-fig"><img src="assets/flyer_homecoming_jan24_2026.svg" alt="Official Homecoming flyer art" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- 06 GRAILS -->
+  <section class="sec chapter tall-m" data-sec="grails" id="grails">
+    <div class="sticky">
+      <div class="chap-text left">
+        <p class="chap-num mono"><b>06</b> / Grails</p>
+        <h2 class="display">Chase<br>the grail.</h2>
+        <p class="chap-copy mono">Collectibles, toys, Funko, figures, vintage and memorabilia. The case you didn’t know you needed.</p>
+        <ul class="chips mono"><li>Funko</li><li>Figures</li><li>Vintage</li><li>Memorabilia</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOMETHING FOR EVERYONE -->
+  <section class="sec sfe" data-sec="sfe">
+    <div class="marquee m1"><div class="track display"><span>Something for everyone</span><span>✦</span><span>Something for everyone</span><span>✦</span><span>Something for everyone</span><span>✦</span></div></div>
+    <div class="marquee m2"><div class="track display outline"><span>Buy · Sell · Trade · Network</span><span>✦</span><span>Buy · Sell · Trade · Network</span><span>✦</span><span>Buy · Sell · Trade · Network</span><span>✦</span></div></div>
+    <ul class="cat-grid mono">
+      <li>Sneakers</li><li>Streetwear</li><li>Trading cards</li><li>Art</li><li>Custom rugs</li><li>Live screen printing</li><li>Collectibles</li><li>Funko &amp; figures</li><li>Jewelry</li><li>Fragrances</li><li>Haircuts</li><li>Live sneaker cleaning</li><li>Food &amp; treats</li><li>Giveaways &amp; raffles</li><li>DJ &amp; live performances</li><li>Networking</li>
+    </ul>
+  </section>
+
+  <!-- ====== HTML SECTIONS (canvas faded out) ====== -->
+  <div class="solid">
+
+    <section class="block" id="events">
+      <div class="block-head">
+        <p class="eyebrow mono">Where we’ll be</p>
+        <h2 class="display">Next up</h2>
+      </div>
+      <div class="event-grid">
+        <article class="card next-card" id="next-card"></article>
+        <article class="card last-card" id="last-card"></article>
+      </div>
+    </section>
+
+    <section class="block" id="timeline">
+      <div class="block-head">
+        <p class="eyebrow mono">The run so far</p>
+        <h2 class="display">Past events</h2>
+        <p class="mono muted small">Homecoming (Jan 2026) was billed as the 4-year anniversary. Earlier dates still being archived.</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <div class="tl-date mono"><b>Apr 21</b>2024</div>
+          <div class="tl-body"><h3 class="display">Revenge of the Tricks</h3><p class="mono">Wide World of Indoor Sports · 1610 Davisville Rd, North Kingstown, RI · 12–6 PM</p><p class="mono muted">Sneakers, art, collectibles, raffles, exotic snacks &amp; live performances.</p></div>
+          <img class="tl-img" src="assets/flyer_revenge_of_the_tricks_apr21.svg" alt="Revenge of the Tricks official flyer" loading="lazy">
+        </li>
+        <li>
+          <div class="tl-date mono"><b>May 10</b>2025</div>
+          <div class="tl-body"><h3 class="display">KicksandTricks 7</h3><p class="mono">Wide World of Indoor Sports · North Kingstown, RI · 12–6 PM</p><p class="mono muted">Streetwear, art, food, ice cream &amp; giveaways. Featured on WJAR Studio10.</p></div>
+        </li>
+        <li>
+          <div class="tl-date mono"><b>Oct 11</b>2025</div>
+          <div class="tl-body"><h3 class="display">Kicks N Tricks — Somerset</h3><p class="mono">Teamworks · Somerset, MA · 12–6 PM</p><p class="mono muted">First Massachusetts date. Dirty Laces joined Anthony on WJAR Studio10.</p></div>
+        </li>
+        <li>
+          <div class="tl-date mono"><b>Jan 24</b>2026</div>
+          <div class="tl-body"><h3 class="display">Homecoming</h3><p class="mono">DoubleTree by Hilton Providence Airport · 2081 Post Rd, Warwick, RI · 12–6 PM</p><p class="mono muted">4-year anniversary · featuring TJBEATS · 46 vendors listed · on WPRI’s The Rhode Show.</p></div>
+          <img class="tl-img wide" src="assets/flyer_homecoming_jan24_2026.svg" alt="Homecoming official flyer" loading="lazy">
+        </li>
+        <li>
+          <div class="tl-date mono"><b>Jul 25</b>2026</div>
+          <div class="tl-body"><h3 class="display">KICKSANDTRICKS X</h3><p class="mono">DoubleTree by Hilton · Warwick, RI · 12–6 PM (VIP 11 AM)</p><p class="mono muted">“Kicksandtricks is back home!” 46 vendors · jayypod bonecast season 8 live finale recorded on site.</p></div>
+          <img class="tl-img wide" src="assets/banner_kicksandtricks_x_jul25.svg" alt="KICKSANDTRICKS X official banner" loading="lazy">
+        </li>
+        <li>
+          <div class="tl-date mono"><b>Nov 1</b>2026</div>
+          <div class="tl-body"><h3 class="display">Downtown Kicksandtricks</h3><p class="mono">Aloft Providence Downtown · 191 Dorrance St, Providence, RI · 12–5 PM</p><p class="mono muted">Free entry · the “Be Yourself” tour.</p></div>
+        </li>
+      </ol>
+      <div class="photo-strip">
+        <figure><img src="assets/photo_sneaker_table_erinelizabeth.svg" alt="Sneaker table" loading="lazy"><figcaption class="mono">Photo: ErinElizabeth</figcaption></figure>
+        <figure><img src="assets/photo_shoppers_newaura.svg" alt="Shoppers holding sneakers" loading="lazy"><figcaption class="mono">Photo: New Aura Company</figcaption></figure>
+        <figure><img src="assets/photo_screenprinting.svg" alt="Live screen printing" loading="lazy"><figcaption class="mono">Live screen printing</figcaption></figure>
+        <figure><img src="assets/photo_vendor_table_kickamatics.svg" alt="Vendor sneaker wall" loading="lazy"><figcaption class="mono">Vendor wall</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="block" id="vendors">
+      <div class="block-head">
+        <p class="eyebrow mono">Vendors</p>
+        <h2 class="display">Get a table</h2>
+        <p class="mono muted small">Most recent posted pricing: <b>KICKSANDTRICKS X · Jul 25, 2026</b> (Treasure). Next-show pricing may change; confirm by DM.</p>
+      </div>
+      <div class="packs">
+        <article class="card pack">
+          <p class="mono pack-name">Vendor Pack 1</p>
+          <p class="price display">$105</p>
+          <ul class="mono">
+            <li>One 6-foot table</li><li>Chairs + tablecloth</li><li>Custom social vendor flyer</li><li>All-day pass</li><li>2 extra guest passes</li>
+          </ul>
+        </article>
+        <article class="card pack hot">
+          <p class="mono pack-name">Vendor Pack 2</p>
+          <p class="price display">$180</p>
+          <ul class="mono">
+            <li>Two 6-foot tables</li><li>Chairs + tablecloth</li><li>Custom social vendor flyer</li><li>All-day pass</li><li>3 extra guest passes</li>
+          </ul>
+        </article>
+        <article class="card pack info">
+          <p class="mono pack-name">Good to know</p>
+          <ul class="mono">
+            <li><b>Load-in</b> 8:00–10:30 AM</li>
+            <li><b>Admission at X</b> GA $5 (12 PM) · VIP $10 (11 AM early entry, carts OK)</li>
+            <li><b>Tables</b> have been sold via Treasure applications</li>
+            <li><b>Policy</b> No refunds. Not responsible for lost, stolen or damaged items.</li>
+          </ul>
+          <a class="btn btn-fire" href="https://www.instagram.com/kicksandtricks47" target="_blank" rel="noopener">Ask about a table ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="block book" id="book">
+      <div class="book-grid">
+        <div>
+          <p class="eyebrow mono">Book Kicksandtricks</p>
+          <h2 class="display">Bring the con<br>to your city.</h2>
+          <p class="mono">Venues, sponsors, collabs, press and pop-ups: Anthony Gorton and the Kicksandtricks crew take it to the DMs.</p>
+          <a class="btn btn-fire big" href="https://www.instagram.com/kicksandtricks47" target="_blank" rel="noopener">DM @kicksandtricks47 ↗</a>
+          <div class="press mono">
+            <p class="muted">As seen on</p>
+            <ul><li>WPRI 12 · The Rhode Show</li><li>WJAR · Studio10</li><li>RI Free Radio</li><li>jayypod bonecast</li></ul>
+          </div>
+        </div>
+        <form class="card inquiry mono" onsubmit="event.preventDefault();this.classList.add('sent');">
+          <p class="form-flag">Concept form · not connected</p>
+          <label>Name<input type="text" placeholder="Your name"></label>
+          <label>Email<input type="email" placeholder="you@example.com"></label>
+          <label>I’m reaching out about
+            <select><option>Booking / venue</option><option>Sponsorship</option><option>Collab</option><option>Vendor table</option><option>Press</option></select>
+          </label>
+          <label>Date / city<input type="text" placeholder="e.g. Spring 2027, Providence"></label>
+          <label>Details<textarea rows="3" placeholder="Tell us the vibe"></textarea></label>
+          <button class="btn btn-fire" type="submit">Send inquiry</button>
+          <p class="form-ok">Mockup only. For now, DM <a href="https://www.instagram.com/kicksandtricks47" target="_blank" rel="noopener">@kicksandtricks47</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="block partners">
+      <p class="eyebrow mono">On the floor with</p>
+      <ul class="partner-list display">
+        <li>Dirty Laces</li><li>G.A.S Sneaker Company</li><li>Dontcallithype</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <img src="assets/logo.svg" alt="Kicks and Tricks" class="foot-logo" loading="lazy" width="900" height="590">
+      <p class="tagline display">Be yourself and chase your dreams, that’s the Kicksandtricks way!</p>
+      <div class="foot-row mono">
+        <a href="https://www.instagram.com/kicksandtricks47" target="_blank" rel="noopener">Instagram @kicksandtricks47 ↗</a>
+        <span>Rhode Island · Southern New England</span>
+        <span class="concept">Concept mockup</span>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="ui.js"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
